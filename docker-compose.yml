@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  # Application Service
+  app:
+    build: ./app
+    container_name: sample-app
+    restart: unless-stopped
+    volumes:
+      - ./app:/app
+      - app-logs:/var/log/app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - promtail
+
+  # Prometheus - Metrics
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    restart: unless-stopped
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    ports:
+      - "9090:9090"
+    depends_on:
+      - app
+
+  # Grafana - Visualization
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    restart: unless-stopped
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - grafana-storage:/var/lib/grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+      - loki
+
+  # Loki - Log Aggregation
+  loki:
+    image: grafana/loki:latest
+    container_name: loki
+    restart: unless-stopped
+    volumes:
+      - ./loki/loki-config.yml:/etc/loki/local-config.yaml
+    ports:
+      - "3100:3100"
+
+  # Promtail - Log Collector
+  promtail:
+    image: grafana/promtail:latest
+    container_name: promtail
+    restart: unless-stopped
+    volumes:
+      - ./promtail/promtail-config.yml:/etc/promtail/config.yml
+      - app-logs:/var/log/app
+    command:
+      - '-config.file=/etc/promtail/config.yml'
+    depends_on:
+      - loki
+
+volumes:
+  grafana-storage:
+    app-logs:
