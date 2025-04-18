@@ -1,0 +1,35 @@
+{
+  "title": "Application Logs Dashboard",
+  "panels": [
+    {
+      "title": "Filtered Debug Logs",
+      "type": "logs",
+      "datasource": "Loki",
+      "targets": [
+        {
+          "expr": "{job=\"app-logs\"} |~ \"level=debug\"",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "showTime": true,
+        "showLabels": true,
+        "wrapLogMessage": true
+      },
+      "gridPos": {
+        "h": 150,
+        "w": 240,
+        "x": 0,
+        "y": 0
+      }
+    }
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-5m",
+    "to": "now"
+  },
+  "timezone": "browser"
+}

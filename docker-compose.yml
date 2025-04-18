@@ -67,4 +67,4 @@ services:
 
 volumes:
   grafana-storage:
-    app-logs:
+  app-logs:
