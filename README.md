@@ -6,8 +6,8 @@ A complete observability stack containerized with Docker Compose, featuring appl
 **Prerequisites**: Ubuntu 20.04/22.04, Docker Engine 20.10+, Docker Compose 2.0+, 2GB RAM minimum (4GB recommended).  
 
 **Quick Start**:  
-1. Install Docker: `chmod +x scripts/docker.sh && sudo ./scripts/docker.sh`  
-2. Clone repository: `git clone https://github.com/LeBakii/monitoring.git && cd monitoring`  
+1. Clone repository: `git clone https://github.com/LeBakii/monitoring.git && cd monitoring`  
+2. Install Docker: `chmod +x scripts/docker.sh && sudo ./scripts/docker.sh`
 3. Start stack: `docker-compose up -d`  
 4. Access services:  
    - Application: http://localhost:5000  
