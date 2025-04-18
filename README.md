@@ -7,14 +7,13 @@ A complete observability stack containerized with Docker Compose, featuring appl
 
 **Quick Start**:  
 1. Install Docker: `chmod +x scripts/docker.sh && sudo ./scripts/docker.sh`  
-2. Clone repository: `git clone https://github.com/your-repo/monitoring-stack.git && cd monitoring-stack`  
+2. Clone repository: `git clone https://github.com/LeBakii/monitoring.git && cd monitoring`  
 3. Start stack: `docker-compose up -d`  
 4. Access services:  
    - Application: http://localhost:5000  
    - Grafana: http://localhost:3000 (admin/admin)  
    - Prometheus: http://localhost:9090  
    - Loki: http://localhost:3100  
-
 
 **Configuration**:  
 - Application: Modify `app/app.py` and `app/requirements.txt`  
