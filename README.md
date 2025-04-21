@@ -4,7 +4,7 @@ A complete observability stack containerized with Docker Compose, featuring appl
 **Features**: Python Application with metrics endpoints and generates random DEBUG/WARNING logs, Prometheus for metrics collection, Loki for log aggregation, Promtail for log collection, and Grafana for visualization dashboards.  
 
 **Quick Start**:  
-1. Clone repository: `git clone https://github.com/LeBakii/monitoring.git && cd monitoring`  
+1. Clone repository: `git clone https://github.com/Bakierbass/monitoring.git && cd monitoring`  
 2. Install Docker: `chmod +x scripts/docker.sh && sudo ./scripts/docker.sh`
 3. Start stack: `docker-compose up -d`  
 4. Access services:  
