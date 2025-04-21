@@ -3,8 +3,6 @@ A complete observability stack containerized with Docker Compose, featuring appl
 
 **Features**: Python Application with metrics endpoints and generates random DEBUG/WARNING logs, Prometheus for metrics collection, Loki for log aggregation, Promtail for log collection, and Grafana for visualization dashboards.  
 
-**Prerequisites**: Ubuntu 20.04/22.04/24.04, Docker Engine, Docker Compose, 2GB RAM minimum (4GB recommended)
-
 **Quick Start**:  
 1. Clone repository: `git clone https://github.com/LeBakii/monitoring.git && cd monitoring`  
 2. Install Docker: `chmod +x scripts/docker.sh && sudo ./scripts/docker.sh`
